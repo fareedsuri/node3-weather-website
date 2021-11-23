@@ -57,7 +57,7 @@ app.get('/weather',(req,res)=>{
                 error: "address not found"
             })
         }
-        forecast(longitude,latitude,(error,{temp=0,feels=0}={})=>{
+        forecast(longitude,latitude,(error,{temp=0,feels=0,wind=0}={})=>{
             if (error){
                 return res.send({
                     error: "cannot retrieve weather"
@@ -66,7 +66,8 @@ app.get('/weather',(req,res)=>{
             res.send({
                 location,
                 temp,
-                feels
+                feels,
+                wind
             })
         })
     })
